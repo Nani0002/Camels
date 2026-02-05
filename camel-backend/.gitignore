@@ -6,4 +6,8 @@ Camels.WebAPI/obj
 Camels.DataAccess/obj
 Camels.Tests/obj
 
+**/Data/*.db
+**/*.db
+*.db-shm
+*.db-wal
 .vs

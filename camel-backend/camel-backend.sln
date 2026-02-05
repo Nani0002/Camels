@@ -3,7 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.36908.8 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calmels.WebAPI", "Calmels.WebAPI\Calmels.WebAPI.csproj", "{CB6390D8-B4EB-4F1D-BCFB-1C93285C7D21}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Camels.Tests", "Camels.Tests\Camels.Tests.csproj", "{8C60BE1A-DA4F-4052-B1E8-CD5815478862}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Camels.DataAccess", "Camels.DataAccess\Camels.DataAccess.csproj", "{D02FC50B-7696-480B-8332-79BC6341A3F8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0A9FBA22-719E-4DCE-9582-83C5B6A969AD}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Camels.WebAPI", "Camels.WebAPI\Camels.WebAPI.csproj", "{B30A183B-1C8A-4C55-B846-23D3733D7CE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +20,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CB6390D8-B4EB-4F1D-BCFB-1C93285C7D21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CB6390D8-B4EB-4F1D-BCFB-1C93285C7D21}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CB6390D8-B4EB-4F1D-BCFB-1C93285C7D21}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CB6390D8-B4EB-4F1D-BCFB-1C93285C7D21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C60BE1A-DA4F-4052-B1E8-CD5815478862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C60BE1A-DA4F-4052-B1E8-CD5815478862}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C60BE1A-DA4F-4052-B1E8-CD5815478862}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C60BE1A-DA4F-4052-B1E8-CD5815478862}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D02FC50B-7696-480B-8332-79BC6341A3F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D02FC50B-7696-480B-8332-79BC6341A3F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D02FC50B-7696-480B-8332-79BC6341A3F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D02FC50B-7696-480B-8332-79BC6341A3F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B30A183B-1C8A-4C55-B846-23D3733D7CE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B30A183B-1C8A-4C55-B846-23D3733D7CE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B30A183B-1C8A-4C55-B846-23D3733D7CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B30A183B-1C8A-4C55-B846-23D3733D7CE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

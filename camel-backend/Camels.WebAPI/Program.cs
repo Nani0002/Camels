@@ -1,13 +1,39 @@
+using Microsoft.OpenApi.Models;
+using Camels.DataAccess;
+using Camels.WebAPI.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(s =>
+{
+    s.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "Camels API",
+        Version = "v1",
+        Description = "Camels API"
+    });
+});
+
+builder.Services.AddDataAccess(builder.Configuration);
+
+builder.Services.AddAutomapper();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<CamelsDbContext>();
+
+    var dbPath = Path.Combine(
+        app.Environment.ContentRootPath,
+        "Data",
+        "camels.db"
+    );
+
+    DbInitializer.Initialize(context, dbPath, seed: true);
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -17,9 +43,5 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
 
 app.Run();
