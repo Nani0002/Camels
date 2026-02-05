@@ -1,6 +1,12 @@
 using Microsoft.OpenApi.Models;
 using Camels.DataAccess;
 using Camels.WebAPI.Infrastructure;
+using Camels.DataAccess.Services;
+using Camels.Shared.Models;
+using AutoMapper;
+using Camels.DataAccess.Models;
+using Camels.DataAccess.Exceptions;
+using Camels.WebAPI.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +23,6 @@ builder.Services.AddSwaggerGen(s =>
 });
 
 builder.Services.AddDataAccess(builder.Configuration);
-
 builder.Services.AddAutomapper();
 
 var app = builder.Build();
@@ -43,5 +48,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.MapCamelsEndpoints();
 
 app.Run();

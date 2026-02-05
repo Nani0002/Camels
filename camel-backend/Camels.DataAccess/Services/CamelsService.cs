@@ -20,12 +20,12 @@ namespace Camels.DataAccess.Services
 
         public async Task<List<Camel>> GetAllAsync()
         {
-            return await _context.Camels.ToListAsync();
+            return await _context.Camels.Where(x => x.DeletedAt == null).ToListAsync();
         }
 
         public async Task<Camel> GetByIdAsync(int id)
         {
-            var camel = await _context.Camels.FirstOrDefaultAsync(c => c.Id == id);
+            var camel = await _context.Camels.Where(x => x.DeletedAt == null).FirstOrDefaultAsync(c => c.Id == id);
             if (camel is null)
                 throw new EntityNotFoundException(nameof(Camel));
 
@@ -34,6 +34,9 @@ namespace Camels.DataAccess.Services
 
         public async Task AddAsync(Camel camel)
         {
+            if (string.IsNullOrWhiteSpace(camel.Name))
+                throw new InvalidDataException("Camel name cannot be empty.");
+
             if (camel.HumpCount != 1 && camel.HumpCount != 2)
                 throw new InvalidDataException("Hump count must be one or two.");
 
@@ -56,6 +59,9 @@ namespace Camels.DataAccess.Services
             if (existingCamel is null)
                 throw new EntityNotFoundException(nameof(Camel));
 
+            if (string.IsNullOrWhiteSpace(camel.Name))
+                throw new InvalidDataException("Camel name cannot be empty.");
+
             if (camel.HumpCount != 1 && camel.HumpCount != 2)
                 throw new InvalidDataException("Hump count must be one or two.");
 
@@ -77,10 +83,12 @@ namespace Camels.DataAccess.Services
         {
             var camel = await GetByIdAsync(id);
 
+            //Remove if soft delete
             camel.DeletedAt = DateTime.Now;
 
             try
             {
+                _context.Camels.Remove(camel);
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException ex)

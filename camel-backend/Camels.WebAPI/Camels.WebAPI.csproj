@@ -17,6 +17,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Camels.DataAccess\Camels.DataAccess.csproj" />
+    <ProjectReference Include="..\Camels.Shared\Camels.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
 
 </Project>

@@ -1,10 +1,12 @@
 Camels.WebAPI/bin
 Camels.DataAccess/bin
 Camels.Tests/bin
+Camels.Shared/bin
 
 Camels.WebAPI/obj
 Camels.DataAccess/obj
 Camels.Tests/obj
+Camels.Shared/obj
 
 **/Data/*.db
 **/*.db
