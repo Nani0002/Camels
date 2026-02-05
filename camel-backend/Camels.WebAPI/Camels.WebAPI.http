@@ -1,0 +1,6 @@
+@Camels.WebAPI_HostAddress = http://localhost:5087
+
+GET {{Camels.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

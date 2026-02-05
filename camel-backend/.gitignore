@@ -1,0 +1,9 @@
+Camels.WebAPI/bin
+Camels.DataAccess/bin
+Camels.Tests/bin
+
+Camels.WebAPI/obj
+Camels.DataAccess/obj
+Camels.Tests/obj
+
+.vs
