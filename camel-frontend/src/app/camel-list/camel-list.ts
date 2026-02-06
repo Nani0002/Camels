@@ -3,11 +3,12 @@ import { Camel } from '../shared/models/camel';
 import { CamelService } from '../services/camel-service';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-camel-list',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, RouterLink],
     templateUrl: './camel-list.html',
     styleUrls: ['./camel-list.css'],
 })

@@ -1,3 +1,16 @@
-<router-outlet>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand">🐪 Camel Manager</a>
 
-</router-outlet>
+            <div class="navbar-nav">
+                <a class="nav-link" routerLink="/camels">Camels</a>
+                <a class="nav-link" routerLink="/camels/create">Create</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="container">
+    <router-outlet> </router-outlet>
+</main>

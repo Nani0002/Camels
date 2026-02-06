@@ -1,18 +1,20 @@
-<table>
+<table class="table table-dark table-hover table-striped-columns mt-3">
     <thead>
         <tr>
             <th>Name</th>
             <th>Color</th>
             <th>Hump Count</th>
             <th>Last Fed</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let camel of camels$ | async">
+        <tr *ngFor="let camel of camels$ | async" class="align-middle">
             <td>{{ camel.name }}</td>
             <td>{{ camel.color }}</td>
             <td>{{ camel.humpCount }}</td>
-            <td>{{ camel.lastFed }}</td>
+            <td>{{ camel.lastFed | date:'yyyy. MM. dd. hh:mm:ss' }}</td>
+            <td><a [routerLink]="['/camels/edit/', camel.id]" class="btn btn-success">Edit</a></td>
         </tr>
     </tbody>
 </table>
