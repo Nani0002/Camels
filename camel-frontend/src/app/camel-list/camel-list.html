@@ -1,0 +1,19 @@
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Hump Count</th>
+            <th>Last Fed</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let camel of camels$ | async">
+            <td>{{ camel.name }}</td>
+            <td>{{ camel.color }}</td>
+            <td>{{ camel.humpCount }}</td>
+            <td>{{ camel.lastFed }}</td>
+        </tr>
+    </tbody>
+</table>
+
