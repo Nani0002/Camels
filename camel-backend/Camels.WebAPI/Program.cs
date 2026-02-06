@@ -10,6 +10,17 @@ using Camels.WebAPI.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AngularClient", policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:4200")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(s =>
@@ -24,6 +35,9 @@ builder.Services.AddSwaggerGen(s =>
 
 builder.Services.AddDataAccess(builder.Configuration);
 builder.Services.AddAutomapper();
+
+
+
 
 var app = builder.Build();
 
@@ -46,6 +60,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("AngularClient");
 
 app.UseHttpsRedirection();
 
