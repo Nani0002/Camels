@@ -28,7 +28,7 @@ export class CamelFormComponent implements OnInit {
 
     ngOnInit(): void {
         this.form = this.formBuilder.group({
-            name: ['', [Validators.required]],
+            name: ['', [Validators.required, Validators.minLength(2)]],
             color: [''],
             humpCount: [1, [Validators.required, Validators.min(1), Validators.max(2)]],
             lastFed: [''],
