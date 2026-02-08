@@ -7,6 +7,7 @@ using AutoMapper;
 using Camels.DataAccess.Models;
 using Camels.DataAccess.Exceptions;
 using Camels.WebAPI.Endpoints;
+using Microsoft.Data.Sqlite;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -45,13 +46,27 @@ using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<CamelsDbContext>();
 
-    var dbPath = Path.Combine(
+    /*var dbPath = Path.Combine(
         app.Environment.ContentRootPath,
         "Data",
         "camels.db"
+    );*/
+
+
+    var connectionString =
+        builder.Configuration.GetConnectionString("DefaultConnection");
+
+    var csBuilder =
+        new SqliteConnectionStringBuilder(connectionString);
+
+    var dbPath = Path.Combine(
+        app.Environment.ContentRootPath,
+        csBuilder.DataSource
     );
 
-    DbInitializer.Initialize(context, dbPath, seed: true);
+    var seedDb = builder.Configuration.GetValue<bool>("SeedDatabase");
+
+    DbInitializer.Initialize(context, dbPath, seedDb);
 }
 
 // Configure the HTTP request pipeline.
