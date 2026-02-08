@@ -12,7 +12,19 @@ export class CamelService {
 
     constructor(private http: HttpClient) {}
 
-    getAll(): Observable<Camel[]>{
-        return this.http.get<Camel[]>(this.apiUrl)
+    getAll(): Observable<Camel[]> {
+        return this.http.get<Camel[]>(this.apiUrl);
+    }
+
+    getById(id: Number): Observable<Camel> {
+        return this.http.get<Camel>(`${this.apiUrl}/${id}`);
+    }
+
+    create(camel: Camel) {
+        return this.http.post<Camel>(this.apiUrl, camel);
+    }
+
+    update(id: Number, camel: Camel) {
+        return this.http.put<void>(`${this.apiUrl}/${id}`, camel);
     }
 }

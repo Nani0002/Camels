@@ -1,1 +1,32 @@
-<p>camel-form works!</p>
+<div class="container mt-4">
+    <h2>{{ isEdit ? 'Edit Camel' : 'Add Camel' }}</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="input-group mb-3">
+            <label class="input-group-text w-15">Name</label>
+            <input class="form-control" formControlName="name" />
+        </div>
+
+        <div class="input-group mb-3">
+            <label class="input-group-text w-15">Color</label>
+            <input class="form-control" formControlName="color" />
+        </div>
+
+        <div class="input-group mb-3">
+            <label class="input-group-text w-15">Hump Count</label>
+            <input type="number" class="form-control" formControlName="humpCount" />
+        </div>
+
+        <div class="input-group mb-3">
+            <label class="input-group-text w-15">Last Fed</label>
+            <button class="btn btn-dark" type="button" (click)="setDateNow()">Now</button>
+            <input type="datetime-local" class="form-control" formControlName="lastFed" />
+        </div>
+
+        <button class="btn btn-primary me-2" type="submit">
+            {{ isEdit ? 'Update' : 'Create' }}
+        </button>
+
+        <a routerLink="/camels" class="btn btn-secondary"> Cancel </a>
+    </form>
+</div>

@@ -13,7 +13,7 @@
             <td>{{ camel.name }}</td>
             <td>{{ camel.color }}</td>
             <td>{{ camel.humpCount }}</td>
-            <td>{{ camel.lastFed | date:'yyyy. MM. dd. hh:mm:ss' }}</td>
+            <td>{{ camel.lastFed | date:'yyyy. MM. dd. HH:mm:ss' }}</td>
             <td><a [routerLink]="['/camels/edit/', camel.id]" class="btn btn-success">Edit</a></td>
         </tr>
     </tbody>
