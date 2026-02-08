@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Camel } from '../shared/models/camel';
-import { CamelService } from '../services/camel-service';
+import { CamelService } from '../shared/services/camel-service';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { RouterLink } from '@angular/router';

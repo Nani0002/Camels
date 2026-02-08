@@ -1,0 +1,14 @@
+<div
+  *ngIf="message$ | async as msg"
+  class="alert alert-{{ msg.type }} alert-dismissible fade show floating-alert"
+  role="alert">
+
+  {{ msg.text }}
+
+  <button
+    type="button"
+    class="btn-close"
+    (click)="close()">
+  </button>
+
+</div>

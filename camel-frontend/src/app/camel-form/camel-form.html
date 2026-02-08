@@ -4,7 +4,7 @@
     <form [formGroup]="form" (ngSubmit)="submit()">
         <div class="input-group mb-3">
             <label class="input-group-text w-15">Name</label>
-            <input class="form-control" formControlName="name" />
+            <input class="form-control" formControlName="name" [class.is-invalid]="form.get('name')?.invalid && form.get('name')?.touched"/>
         </div>
 
         <div class="input-group mb-3">
@@ -14,7 +14,7 @@
 
         <div class="input-group mb-3">
             <label class="input-group-text w-15">Hump Count</label>
-            <input type="number" class="form-control" formControlName="humpCount" />
+            <input type="number" class="form-control" formControlName="humpCount" [class.is-invalid]="form.get('humpCount')?.invalid && form.get('humpCount')?.touched"/>
         </div>
 
         <div class="input-group mb-3">

@@ -3,5 +3,5 @@ export interface Camel {
     name: string;
     color?: string;
     humpCount: number;
-    lastFed?: string;
+    lastFed?: string | null;
 }
